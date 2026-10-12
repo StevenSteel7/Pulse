@@ -21,7 +21,6 @@ struct PulseSettings: Codable, Equatable, Identifiable {
     }
 
     static let `default` = PulseSettings(host: "192.168.1.54", port: 8801, apiKey: "")
-    static let oracle = PulseSettings(id: "vps", name: "Oracle VPS", host: "127.0.0.1", port: 8802, apiKey: "")
 
     enum CodingKeys: String, CodingKey { case id, name, host, port, apiKey, useTLS, certificateFingerprint }
 
@@ -81,10 +80,16 @@ enum SettingsStore {
         if let data = try? Data(contentsOf: profilesFile),
            let profiles = try? JSONDecoder().decode([PulseSettings].self, from: data),
            !profiles.isEmpty, Set(profiles.map(\.id)).count == profiles.count {
-            return profiles
+            // Retire the old built-in Oracle placeholder; real saved connections stay intact.
+            let saved = profiles.filter {
+                !($0.id == "vps" && $0.name == "Oracle VPS" && $0.host == "127.0.0.1"
+                  && $0.port == 8802 && $0.certificateFingerprint == nil
+                  && $0.apiKey.isEmpty && CredentialStore.isAvailable)
+            }
+            return saved.isEmpty ? [.default] : saved
         }
         let existing = SharedContainer.settingsFile.flatMap(decode) ?? decode(SharedContainer.legacySettingsFile) ?? .default
-        return [PulseSettings(id: "pc", name: existing.name, host: existing.host, port: existing.port, apiKey: existing.apiKey, useTLS: existing.useTLS), .oracle]
+        return [PulseSettings(id: "pc", name: existing.name, host: existing.host, port: existing.port, apiKey: existing.apiKey, useTLS: existing.useTLS)]
     }
 
     static func load() -> PulseSettings {
@@ -114,7 +119,7 @@ enum SettingsStore {
 
     static func remove(_ id: String) throws {
         let remaining = profiles().filter { $0.id != id }
-        try saveProfiles(remaining.isEmpty ? [.default, .oracle] : remaining)
+        try saveProfiles(remaining.isEmpty ? [.default] : remaining)
         try CredentialStore.delete(id)
         if load().id == id { try select(remaining.first?.id ?? "pc") }
     }
