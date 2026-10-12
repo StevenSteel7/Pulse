@@ -16,12 +16,14 @@ struct DashboardView: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                if let stats = monitor.latestStats {
-                    statsGrid(stats)
-                } else {
-                    emptyState
+                ScrollView {
+                    if let stats = monitor.latestStats {
+                        statsGrid(stats)
+                    } else {
+                        emptyState
+                    }
                 }
-                Spacer(minLength: 0)
+                .scrollIndicators(.hidden)
                 footer
             }
             .padding(24)

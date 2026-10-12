@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/Metadata.appintents/extract.actionsdata</key>
 		<data>
-		oERwWqzSuCw50AqCSuA60LkoCew=
+		XhPy5KDa/EZwBWnoB3dNdbt06r4=
 		</data>
 		<key>Resources/Metadata.appintents/version.json</key>
 		<data>
@@ -23,7 +23,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			D/dLtf3hKkNJzWrDuJbGvnMukN8=
+			67IDqgHJGiIYHcWohNU7w3m/R+o=
 			</data>
 			<key>requirement</key>
 			<string>identifier "PulseWidget.debug" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: soggsteven92@gmail.com (MZ63AK6Y84)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
@@ -48,7 +48,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cLK8fLdtjxzwIFBBSPCXcgGMGlNg6UZCei++rV1Gdr0=
+			5uhZ9tf/1NViSMNeQ+awzD6EExVDgaaYSUOI5MoNkwY=
 			</data>
 		</dict>
 		<key>Resources/Metadata.appintents/version.json</key>

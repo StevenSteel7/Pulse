@@ -1,4 +1,0 @@
-Target dependency graph (2 targets)
-Target 'Pulse' in project 'Pulse'
-➜ Explicit dependency on target 'PulseWidgetExtension' in project 'Pulse'
-Target 'PulseWidgetExtension' in project 'Pulse' (no dependencies)

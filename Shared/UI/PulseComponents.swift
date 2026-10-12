@@ -75,6 +75,7 @@ struct MiniRingStat: View {
     let title: String
     let percent: Double
     let color: Color
+    var diameter: CGFloat = 46
 
     var body: some View {
         VStack(spacing: 4) {
@@ -84,7 +85,7 @@ struct MiniRingStat: View {
                     .font(.system(size: 11, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
             }
-            .frame(width: 46, height: 46)
+            .frame(width: diameter, height: diameter)
             Text(title)
                 .font(.system(size: 9, weight: .medium))
                 .foregroundStyle(.white.opacity(0.6))

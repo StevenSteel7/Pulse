@@ -90,7 +90,7 @@ private struct WidgetSystemSwitcher: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel("Switch to \(id == "pc" ? "PC" : "VPS")")
-        .accessibilityValue(entry.systemID == id ? "Selected" : "")
+        .accessibilityValue(entry.systemID == id ? (entry.isReachable ? "Selected, online" : "Selected, offline") : "")
     }
 }
 
@@ -169,9 +169,9 @@ struct SmallPulseView: View {
             }
             Spacer(minLength: 0)
             HStack(spacing: 8) {
-                MiniRingStat(title: "CPU", percent: stats.cpu.percent, color: PulseTheme.cpuColor)
-                MiniRingStat(title: "RAM", percent: stats.memory.percent, color: PulseTheme.ramColor)
-                MiniRingStat(title: stats.gpu.available ? "GPU" : "Disk", percent: stats.gpu.available ? (stats.gpu.utilizationPercent ?? 0) : stats.disk.percent, color: stats.gpu.available ? PulseTheme.gpuColor : PulseTheme.diskColor)
+                MiniRingStat(title: "CPU", percent: stats.cpu.percent, color: PulseTheme.cpuColor, diameter: 38)
+                MiniRingStat(title: "RAM", percent: stats.memory.percent, color: PulseTheme.ramColor, diameter: 38)
+                MiniRingStat(title: stats.gpu.available ? "GPU" : "Disk", percent: stats.gpu.available ? (stats.gpu.utilizationPercent ?? 0) : stats.disk.percent, color: stats.gpu.available ? PulseTheme.gpuColor : PulseTheme.diskColor, diameter: 38)
             }
             Spacer(minLength: 0)
             Text(footerText)
@@ -196,7 +196,8 @@ struct MediumPulseView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            HStack {
+            HStack(spacing: 5) {
+                Circle().fill(entry.isReachable ? Color.green : Color.red).frame(width: 5, height: 5)
                 Text(stats.hostname)
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundStyle(.white)

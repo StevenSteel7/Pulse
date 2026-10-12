@@ -131,6 +131,7 @@ struct PulseWidget: Widget {
         StaticConfiguration(kind: kind, provider: PulseTimelineProvider(largeStyle: .graph)) { entry in
             PulseWidgetView(entry: entry)
         }
+        .contentMarginsDisabled()
         .configurationDisplayName("Pulse Systems")
         .description("Switch between your PC and VPS for live system stats.")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
@@ -144,6 +145,7 @@ struct PulseClassicLargeWidget: Widget {
         StaticConfiguration(kind: kind, provider: PulseTimelineProvider(largeStyle: .classic)) { entry in
             PulseWidgetView(entry: entry)
         }
+        .contentMarginsDisabled()
         .configurationDisplayName("Pulse Systems — Classic")
         .description("Your PC and VPS with classic gauges and usage bars.")
         .supportedFamilies([.systemLarge])

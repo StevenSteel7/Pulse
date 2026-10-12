@@ -34,7 +34,7 @@ struct PulseCachedSnapshot: Codable {
 /// the widget's own TimelineProvider, or the main app's more-frequent
 /// menu-bar poller — wins, so the widget can always render the freshest
 /// known value even between its own throttled refresh cycles, and can fall
-/// back to it when SIXDX is unreachable instead of showing nothing.
+/// back to it when that system is unreachable instead of showing nothing.
 enum SharedStore {
     private static let maxHistoryPoints = 40
 

@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/Metadata.appintents/extract.actionsdata</key>
 		<data>
-		OQU7E44eFtA7czfHWfvwi5DNqR8=
+		HS1jKs41g7AYoZxjx9iH0bRQLu4=
 		</data>
 		<key>Resources/Metadata.appintents/version.json</key>
 		<data>
@@ -23,7 +23,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			psu6EFbTo2bMuFy+WUyOt9Xd+ss=
+			XnxKKXy47rdFZZjWYLoSxc436mA=
 			</data>
 			<key>requirement</key>
 			<string>identifier "Pulse.debug" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: soggsteven92@gmail.com (MZ63AK6Y84)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
@@ -41,7 +41,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			G1EcK8wDAvXcDQPupTj4dpMfYM4=
+			Ks191TUTt6sPNJk8yMfEt+KQN8k=
 			</data>
 			<key>requirement</key>
 			<string>identifier "com.stevensteel.pulse.widget" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: soggsteven92@gmail.com (MZ63AK6Y84)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
@@ -57,7 +57,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BOGW1qpiNzo+DVfzSoGjaznFb1LISRMJMpdi3d1T//w=
+			10ds0jFJHYVDjh8TGObN6/zvYhQZ94ZHhL8lgbE3zqo=
 			</data>
 		</dict>
 		<key>Resources/Metadata.appintents/version.json</key>
