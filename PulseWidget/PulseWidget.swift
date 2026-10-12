@@ -1,6 +1,11 @@
 import WidgetKit
 import SwiftUI
 
+struct WidgetSystem: Identifiable {
+    let id: String
+    let name: String
+}
+
 enum LargeWidgetStyle {
     case graph
     case classic
@@ -15,6 +20,7 @@ struct PulseEntry: TimelineEntry {
     let largeStyle: LargeWidgetStyle
     let systemID: String
     let systemName: String
+    let systems: [WidgetSystem]
     /// Only set when `stats` is nil, to explain why directly in the widget's
     /// UI instead of requiring Console.app - the widget process is too
     /// short-lived to reliably catch in `log stream`. Never includes the
@@ -30,7 +36,8 @@ struct PulseEntry: TimelineEntry {
         largeStyle: LargeWidgetStyle = .graph,
         diagnostic: String? = nil,
         systemID: String = "pc",
-        systemName: String = "PC"
+        systemName: String = "PC",
+        systems: [WidgetSystem] = SettingsStore.profiles().map { WidgetSystem(id: $0.id, name: $0.name) }
     ) {
         self.date = date
         self.stats = stats
@@ -41,22 +48,12 @@ struct PulseEntry: TimelineEntry {
         self.diagnostic = diagnostic
         self.systemID = systemID
         self.systemName = systemName
+        self.systems = systems
     }
 }
 
-/// Refresh-rate reality check: WidgetKit does not let a widget "poll" in the
-/// background on its own schedule — the system decides when to call
-/// `getTimeline` again based on a per-widget refresh budget (typically a
-/// handful of reloads per hour for an app the user isn't actively using).
-/// Asking for a 1s/5s/30s reload policy here would just be ignored.
-///
-/// So this provider does the honest thing: each time the system *does* call
-/// it, fetch fresh data and ask for another reload in a realistic window.
-/// The gap between those system-driven reloads is covered by
-/// `PulseMonitor` in the main app (see Pulse/PulseMonitor.swift), which
-/// polls every few seconds while running and writes into the same App Group
-/// cache, plus nudges `WidgetCenter.reloadTimelines` — so the widget shows
-/// the freshest available value even when it isn't the one that just fetched it.
+/// Widgets read sanitized snapshots only. The running Mac app owns the
+/// Keychain credentials, polls devices, and requests WidgetKit refreshes.
 struct PulseTimelineProvider: TimelineProvider {
     let largeStyle: LargeWidgetStyle
 
@@ -89,36 +86,24 @@ struct PulseTimelineProvider: TimelineProvider {
         Task {
             let entry = await currentEntry()
             let nextReload = Date().addingTimeInterval(15 * 60)
-            completion(Timeline(entries: [entry], policy: .after(nextReload)))
+            var entries = [entry]
+            if entry.isReachable, let fetchedAt = entry.fetchedAt {
+                entries.append(PulseEntry(date: max(Date().addingTimeInterval(1), fetchedAt.addingTimeInterval(30)),
+                                          stats: entry.stats, fetchedAt: fetchedAt, isReachable: false,
+                                          history: entry.history, largeStyle: entry.largeStyle,
+                                          systemID: entry.systemID, systemName: entry.systemName, systems: entry.systems))
+            }
+            completion(Timeline(entries: entries, policy: .after(nextReload)))
         }
     }
 
     private func currentEntry() async -> PulseEntry {
-        // Retry a selection change during a fetch; don't publish PC data
-        // with the VPS button selected (or vice versa).
-        for _ in 0..<3 {
-            let settings = SettingsStore.load()
-            do {
-                let stats = try await StatsClient.fetch(settings: settings, timeout: 4)
-                guard SettingsStore.load() == settings else { continue }
-                let now = Date()
-                let history = SharedStore.save(stats, settings: settings, fetchedAt: now)
-                return PulseEntry(date: now, stats: stats, fetchedAt: now, isReachable: true,
-                                  history: history, largeStyle: largeStyle,
-                                  systemID: settings.id, systemName: settings.name)
-            } catch {
-                guard SettingsStore.load() == settings else { continue }
-                return cachedEntry(settings: settings)
-            }
-        }
-        return cachedEntry(settings: SettingsStore.load())
-    }
-
-    private func cachedEntry(settings: PulseSettings) -> PulseEntry {
+        let settings = SettingsStore.load()
         let cached = SharedStore.load(settings: settings)
+        let fresh = cached.map { $0.isReachable && Date().timeIntervalSince($0.fetchedAt) < 30 } ?? false
         return PulseEntry(date: Date(), stats: cached?.stats, fetchedAt: cached?.fetchedAt,
-                          isReachable: false, history: cached?.history ?? [], largeStyle: largeStyle,
-                          diagnostic: settings.isConfigured ? "Check the agent or network connection." : "Add this system's API key in Advanced → Settings.",
+                          isReachable: fresh, history: cached?.history ?? [], largeStyle: largeStyle,
+                          diagnostic: "Keep Pulse running in the menu bar for fresh readings.",
                           systemID: settings.id, systemName: settings.name)
     }
 

@@ -1,5 +1,26 @@
 # Pulse Linux agent
 
+## Recommended: pair a public-IP device
+
+In Pulse on your Mac, open **Advanced → Add device → Linux**, enter the public IPv4 address and HTTPS port (default **8843**), and click **Generate & copy install command**.
+
+Run that command on the target device within ten minutes. Once the agent is reachable, Pulse shows a pairing notice. Compare the displayed verification code with the installer's code, give the device a name, and approve. No permanent API key needs to be copied.
+
+Linux requires systemd and sudo. The installer uses `/opt/pulse-paired` for code, `/var/lib/pulse-paired` for protected state, and `pulse-paired.service` for boot startup. Allow the selected TCP port in the OS firewall and Oracle Cloud NSG/security list; the installer does not change these rules.
+
+```bash
+sudo systemctl status pulse-paired --no-pager
+sudo journalctl -u pulse-paired -n 40 --no-pager
+```
+
+[Pairing installer](pair.sh)
+
+The new agent is separate from the legacy service below. Keep Pulse running for fresh widget readings. See [pairing and recovery](../docs/PAIRING.md).
+
+---
+
+## Legacy manual installation
+
 A **single self-contained installer** for systemd-based Ubuntu, Debian, and
 Oracle Linux. Runs on ARM64 (including Oracle Ampere) and x86-64. It detects
 vCPU count, usable RAM, CPU usage, root filesystem usage, and uptime; it does

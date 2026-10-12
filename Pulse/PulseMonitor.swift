@@ -10,6 +10,8 @@ final class PulseMonitor: ObservableObject {
     @Published private(set) var lastError: String?
     @Published private(set) var settings: PulseSettings
 
+    let pairing = PairingCoordinator()
+
     private var pollTask: Task<Void, Never>?
     private var lastPoll = Date.distantPast
 
@@ -20,6 +22,7 @@ final class PulseMonitor: ObservableObject {
         do { try SettingsStore.saveProfiles(SettingsStore.profiles()) }
         catch { lastError = "Couldn't migrate system settings: \(error.localizedDescription)" }
         restoreSnapshot()
+        pairing.onPaired = { [weak self] id in self?.selectSystem(id) }
         start()
     }
 
@@ -93,6 +96,7 @@ final class PulseMonitor: ObservableObject {
         } catch {
             guard !Task.isCancelled, SettingsStore.load() == requested else { return }
             isReachable = false
+            SharedStore.markUnreachable(settings: requested)
             lastError = "\(error)"
             reloadWidgets()
         }

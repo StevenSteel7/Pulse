@@ -12,7 +12,7 @@ enum StatsClientError: Error {
 /// PulseMonitor (which polls much more frequently while running).
 enum StatsClient {
     static func fetch(settings: PulseSettings, timeout: TimeInterval = 3.0) async throws -> StatsResponse {
-        guard settings.isConfigured,
+        guard settings.isConfigured, !settings.apiKey.isEmpty,
               let base = settings.baseURL,
               let url = URL(string: "/stats", relativeTo: base) else {
             throw StatsClientError.invalidSettings
@@ -24,20 +24,9 @@ enum StatsClient {
         request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         request.setValue(settings.apiKey, forHTTPHeaderField: "X-API-Key")
 
-        let data: Data
-        let response: URLResponse
-        do {
-            (data, response) = try await URLSession.shared.data(for: request)
-        } catch {
-            throw StatsClientError.network(error)
-        }
-
-        guard let http = response as? HTTPURLResponse else {
-            throw StatsClientError.invalidResponse
-        }
-        guard http.statusCode == 200 else {
-            throw StatsClientError.httpStatus(http.statusCode)
-        }
+        let result = try await SecureHTTP.send(request, pin: settings.certificateFingerprint)
+        guard result.status == 200 else { throw StatsClientError.httpStatus(result.status) }
+        let data = result.data
 
         do {
             return try JSONDecoder().decode(StatsResponse.self, from: data)

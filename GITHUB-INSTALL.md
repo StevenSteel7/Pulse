@@ -3,7 +3,24 @@
 Repository: [StevenSteel7/Pulse](https://github.com/StevenSteel7/Pulse).
 The agent directories are at the repository root; installer URLs do **not** contain `macos-app/`.
 
-## Linux / Oracle VPS
+## Public-IP pairing (recommended)
+
+Use **Pulse → Advanced → Add device** to generate a personalized command containing a short-lived, single-use token. Choose Windows or Linux, enter the public IPv4 address and port, then run the copied command on that device.
+
+Installer links:
+
+- [Windows pairing installer](https://raw.githubusercontent.com/StevenSteel7/Pulse/main/windows-agent/pair.ps1)
+- [Linux pairing installer](https://raw.githubusercontent.com/StevenSteel7/Pulse/main/linux-agent/pair.sh)
+
+These installers require the token and expiry supplied by Pulse; downloading and running them without the app-generated arguments won't start enrollment. Publish both installers and `paired-agent/agent.py` before using copied commands.
+
+Compare the verification codes, give the device a name, and approve it in Pulse. [Full workflow](docs/PAIRING.md).
+
+## Legacy manual installation
+
+The commands below install the older API-key agents for LAN/SSH use. They do not initiate the new app approval flow.
+
+### Linux / Oracle VPS
 
 Run on your Linux server:
 
@@ -15,7 +32,7 @@ curl -fsSL https://raw.githubusercontent.com/StevenSteel7/Pulse/main/linux-agent
 
 The installer prints the API key and Mac-side SSH-tunnel command. The default agent listens on `127.0.0.1:8801`; connect Pulse to the local tunnel at `127.0.0.1:8802`.
 
-## Windows
+### Windows
 
 With Python 3.10+ on PATH, run in PowerShell:
 

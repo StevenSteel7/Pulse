@@ -9,3 +9,8 @@ __pycache__/
 *.pyc
 config.json
 agent.env
+
+# Locally generated pairing state and TLS private keys
+state.json
+server.key
+server.crt

@@ -10,12 +10,13 @@ struct DashboardView: View {
 
             VStack(spacing: 24) {
                 header
+                DevicePairingControls(coordinator: monitor.pairing)
                 Picker("System", selection: Binding(get: { monitor.settings.id }, set: monitor.selectSystem)) {
                     ForEach(SettingsStore.profiles()) { profile in
                         Text(profile.name).tag(profile.id)
                     }
                 }
-                .pickerStyle(.segmented)
+                .pickerStyle(.menu)
                 ScrollView {
                     if let stats = monitor.latestStats {
                         statsGrid(stats)
@@ -34,9 +35,6 @@ struct DashboardView: View {
                 try monitor.applySettings(updated, selectedID: selectedID)
             }
         }
-        .onAppear {
-            if !monitor.settings.isConfigured { showSettings = true }
-        }
     }
 
     private var header: some View {
@@ -46,7 +44,7 @@ struct DashboardView: View {
                     .font(.system(size: 10, weight: .semibold))
                     .tracking(2)
                     .foregroundStyle(PulseTheme.cpuColor)
-                Text(monitor.latestStats?.hostname ?? monitor.settings.name)
+                Text(monitor.settings.name)
                     .font(.system(size: 28, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                 StatusPill(state: statusState, label: statusLabel)

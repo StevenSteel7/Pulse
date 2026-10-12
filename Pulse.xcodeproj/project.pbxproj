@@ -19,21 +19,29 @@
 		4708A7A978E5EAF31EA89C88 /* PulseWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7624C3E46EB17C958DEBD026 /* PulseWidgetExtension.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		540844F39C17DCED73AFE6EC /* PulseComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854138A44FCD8099671B73A3 /* PulseComponents.swift */; };
 		590275E137DD884C8AFA8F8D /* MenuBarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2BED8137A9FF89E9CE0AE /* MenuBarViews.swift */; };
+		5EBE6D31E0F6B6FA89D2EDCE /* CredentialStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F2415D453A02531C015F0A /* CredentialStore.swift */; };
+		633CA74E2A8D8058CFE18B9F /* PairingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F19C6823B1BAB1B566C5E /* PairingProtocol.swift */; };
 		652697D2896686B67B69D530 /* StatsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F0E6733F577AFDDD376AE /* StatsClient.swift */; };
 		68820A72998494281B77A725 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A9EBCB9547AAD3B2FF3F9 /* DashboardView.swift */; };
 		6E8B95013B27E4F785B23739 /* PulseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE816997F3C6FFD6038D45 /* PulseSettings.swift */; };
 		7368461E0243D99807F6A10F /* PulseWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4E7A7781EC8B1FA863F151 /* PulseWidget.swift */; };
 		7D4E22804D4C8608E9C090E9 /* SharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA66A557A9E25DAD6082673E /* SharedStore.swift */; };
+		829477BB4D3F2FAB64B7D7ED /* CredentialStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F2415D453A02531C015F0A /* CredentialStore.swift */; };
+		83962D288EF7EE1A088287A8 /* AddDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097BB9FE05BFA257259B1FFF /* AddDeviceView.swift */; };
 		89F298E473FC9002625D1B41 /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A83755A1FE59BBD22435C7 /* Formatting.swift */; };
+		8D2109994ADDD3F22973859E /* PairingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAF1D92431F2DABA40CF665 /* PairingCoordinator.swift */; };
 		925D1FCC76ADA2B9DAF43E3D /* StatsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA46D05D76889C31E598D /* StatsModels.swift */; };
 		AB2FF46623DE16A532E1405F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B498B8CE0F9931DB5FED231 /* SettingsView.swift */; };
 		B107E9E22017A46606BA472A /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D151BBB65556776E2BB17F7 /* SharedContainer.swift */; };
 		B8D8D220CF3482BE3E697DA5 /* PulseWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159939A2FC13BCF2C84122E3 /* PulseWidgetViews.swift */; };
 		CFEB86F8B259BB84BEC691B2 /* PulseWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852944254156DE5A2181FD3B /* PulseWidgetBundle.swift */; };
+		D1F16A51903A8A84AF9CD3E6 /* PairingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F19C6823B1BAB1B566C5E /* PairingProtocol.swift */; };
 		D7BF13393F21F0B4BC530140 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52643D55397928A08141F996 /* Theme.swift */; };
 		D89BE77424B91E56B9FF1441 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EEF346D1A5F99B6D75474EC /* Assets.xcassets */; };
+		DA9A9F44C03355EA82B8BA2A /* SecureHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A725AD88FD0BF6C213F135E /* SecureHTTP.swift */; };
 		DD787D06B22838C7144F2ED8 /* StatsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA46D05D76889C31E598D /* StatsModels.swift */; };
 		DF5526C9367386E9C0A4A2DF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52643D55397928A08141F996 /* Theme.swift */; };
+		EACE93D265445A8CF31FCBC9 /* SecureHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A725AD88FD0BF6C213F135E /* SecureHTTP.swift */; };
 		EEEB632D7F3D3DE01DE1E7D6 /* PulseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D56ACE32FFB4495586CE0D /* PulseMonitor.swift */; };
 		FC4512D6E38E5DCA898F51C6 /* SwitchSystemIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81294C5FCC9765E9B6B91503 /* SwitchSystemIntent.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +72,11 @@
 
 /* Begin PBXFileReference section */
 		01D56ACE32FFB4495586CE0D /* PulseMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseMonitor.swift; sourceTree = "<group>"; };
+		08F2415D453A02531C015F0A /* CredentialStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialStore.swift; sourceTree = "<group>"; };
+		097BB9FE05BFA257259B1FFF /* AddDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceView.swift; sourceTree = "<group>"; };
+		0A0F19C6823B1BAB1B566C5E /* PairingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingProtocol.swift; sourceTree = "<group>"; };
 		0A4E7A7781EC8B1FA863F151 /* PulseWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseWidget.swift; sourceTree = "<group>"; };
+		0A725AD88FD0BF6C213F135E /* SecureHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureHTTP.swift; sourceTree = "<group>"; };
 		0EEF346D1A5F99B6D75474EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13FEF2D2118D74C3572DF349 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		159939A2FC13BCF2C84122E3 /* PulseWidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseWidgetViews.swift; sourceTree = "<group>"; };
@@ -79,6 +91,7 @@
 		894F0E6733F577AFDDD376AE /* StatsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsClient.swift; sourceTree = "<group>"; };
 		9D5309CAF2CC1BC7C626E937 /* PulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApp.swift; sourceTree = "<group>"; };
 		9EBE816997F3C6FFD6038D45 /* PulseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseSettings.swift; sourceTree = "<group>"; };
+		9FAF1D92431F2DABA40CF665 /* PairingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingCoordinator.swift; sourceTree = "<group>"; };
 		A50020AF3D93D7F471A5FFE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C03A9EBCB9547AAD3B2FF3F9 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		D5A83755A1FE59BBD22435C7 /* Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatting.swift; sourceTree = "<group>"; };
@@ -90,9 +103,11 @@
 		16C8605271C6A45188D07E13 /* Pulse */ = {
 			isa = PBXGroup;
 			children = (
+				097BB9FE05BFA257259B1FFF /* AddDeviceView.swift */,
 				0EEF346D1A5F99B6D75474EC /* Assets.xcassets */,
 				C03A9EBCB9547AAD3B2FF3F9 /* DashboardView.swift */,
 				73E2BED8137A9FF89E9CE0AE /* MenuBarViews.swift */,
+				9FAF1D92431F2DABA40CF665 /* PairingCoordinator.swift */,
 				9D5309CAF2CC1BC7C626E937 /* PulseApp.swift */,
 				01D56ACE32FFB4495586CE0D /* PulseMonitor.swift */,
 				2B498B8CE0F9931DB5FED231 /* SettingsView.swift */,
@@ -141,8 +156,11 @@
 		C73988AEBE5644AB18939654 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				08F2415D453A02531C015F0A /* CredentialStore.swift */,
 				D5A83755A1FE59BBD22435C7 /* Formatting.swift */,
+				0A0F19C6823B1BAB1B566C5E /* PairingProtocol.swift */,
 				9EBE816997F3C6FFD6038D45 /* PulseSettings.swift */,
+				0A725AD88FD0BF6C213F135E /* SecureHTTP.swift */,
 				3D151BBB65556776E2BB17F7 /* SharedContainer.swift */,
 				EA66A557A9E25DAD6082673E /* SharedStore.swift */,
 				894F0E6733F577AFDDD376AE /* StatsClient.swift */,
@@ -258,12 +276,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EBE6D31E0F6B6FA89D2EDCE /* CredentialStore.swift in Sources */,
 				89F298E473FC9002625D1B41 /* Formatting.swift in Sources */,
+				D1F16A51903A8A84AF9CD3E6 /* PairingProtocol.swift in Sources */,
 				05C437A9D258A122B7AA8C83 /* PulseComponents.swift in Sources */,
 				367D745FC681322325B6B6E3 /* PulseSettings.swift in Sources */,
 				7368461E0243D99807F6A10F /* PulseWidget.swift in Sources */,
 				CFEB86F8B259BB84BEC691B2 /* PulseWidgetBundle.swift in Sources */,
 				B8D8D220CF3482BE3E697DA5 /* PulseWidgetViews.swift in Sources */,
+				EACE93D265445A8CF31FCBC9 /* SecureHTTP.swift in Sources */,
 				2E2946E3E79076046202DC7E /* SharedContainer.swift in Sources */,
 				0B420AE5C0ACDEF453A0338D /* SharedStore.swift in Sources */,
 				45B605894125794E2CF58037 /* StatsClient.swift in Sources */,
@@ -277,13 +298,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83962D288EF7EE1A088287A8 /* AddDeviceView.swift in Sources */,
+				829477BB4D3F2FAB64B7D7ED /* CredentialStore.swift in Sources */,
 				68820A72998494281B77A725 /* DashboardView.swift in Sources */,
 				21BB63A7F26F8D2307E5F760 /* Formatting.swift in Sources */,
 				590275E137DD884C8AFA8F8D /* MenuBarViews.swift in Sources */,
+				8D2109994ADDD3F22973859E /* PairingCoordinator.swift in Sources */,
+				633CA74E2A8D8058CFE18B9F /* PairingProtocol.swift in Sources */,
 				2A294741604ED11BCA7E7E11 /* PulseApp.swift in Sources */,
 				540844F39C17DCED73AFE6EC /* PulseComponents.swift in Sources */,
 				EEEB632D7F3D3DE01DE1E7D6 /* PulseMonitor.swift in Sources */,
 				6E8B95013B27E4F785B23739 /* PulseSettings.swift in Sources */,
+				DA9A9F44C03355EA82B8BA2A /* SecureHTTP.swift in Sources */,
 				AB2FF46623DE16A532E1405F /* SettingsView.swift in Sources */,
 				B107E9E22017A46606BA472A /* SharedContainer.swift in Sources */,
 				7D4E22804D4C8608E9C090E9 /* SharedStore.swift in Sources */,

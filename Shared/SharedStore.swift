@@ -10,15 +10,17 @@ struct PulseCachedSnapshot: Codable {
     let stats: StatsResponse
     let fetchedAt: Date
     let history: [PulseHistoryPoint]
+    let isReachable: Bool
 
     enum CodingKeys: String, CodingKey {
-        case stats, fetchedAt, history
+        case stats, fetchedAt, history, isReachable
     }
 
-    init(stats: StatsResponse, fetchedAt: Date, history: [PulseHistoryPoint] = []) {
+    init(stats: StatsResponse, fetchedAt: Date, history: [PulseHistoryPoint] = [], isReachable: Bool = true) {
         self.stats = stats
         self.fetchedAt = fetchedAt
         self.history = history
+        self.isReachable = isReachable
     }
 
     init(from decoder: Decoder) throws {
@@ -26,6 +28,7 @@ struct PulseCachedSnapshot: Codable {
         stats = try container.decode(StatsResponse.self, forKey: .stats)
         fetchedAt = try container.decode(Date.self, forKey: .fetchedAt)
         history = try container.decodeIfPresent([PulseHistoryPoint].self, forKey: .history) ?? []
+        isReachable = try container.decodeIfPresent(Bool.self, forKey: .isReachable) ?? true
     }
 }
 
@@ -66,6 +69,12 @@ enum SharedStore {
             try? data.write(to: file(for: settings), options: .atomic)
         }
         return history
+    }
+
+    static func markUnreachable(settings: PulseSettings) {
+        guard let cached = load(settings: settings) else { return }
+        let updated = PulseCachedSnapshot(stats: cached.stats, fetchedAt: cached.fetchedAt, history: cached.history, isReachable: false)
+        if let data = try? JSONEncoder().encode(updated) { try? data.write(to: file(for: settings), options: .atomic) }
     }
 
     static func load(settings: PulseSettings) -> PulseCachedSnapshot? {

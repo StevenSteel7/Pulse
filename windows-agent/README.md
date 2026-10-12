@@ -1,5 +1,21 @@
 # Pulse Windows agent
 
+## Recommended: pair a public-IP device
+
+In Pulse on your Mac, open **Advanced → Add device → Windows**, enter the public IPv4 address and HTTPS port (default **8843**), and click **Generate & copy install command**.
+
+Run that command on the target device within ten minutes. Once the agent is reachable, Pulse shows a pairing notice. Compare the displayed verification code with the installer's code, give the device a name, and approve. No permanent API key needs to be copied.
+
+Windows requires Python 3.10+ on PATH and UAC approval. The installer opens the selected Windows Firewall port for all profiles and starts the `PulsePairedAgent` task at logon. For a PC behind a router, forward that TCP port to the PC. Files live in `%LOCALAPPDATA%\PulsePairedAgent`.
+
+[Pairing installer](pair.ps1)
+
+The new agent is separate from the legacy service below. Keep Pulse running for fresh widget readings. See [pairing and recovery](../docs/PAIRING.md).
+
+---
+
+## Legacy manual installation
+
 Read-only CPU, memory, NVIDIA GPU, disk, and uptime telemetry for the Pulse Mac app.
 
 ## Install from GitHub

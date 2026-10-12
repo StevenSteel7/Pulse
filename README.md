@@ -14,72 +14,72 @@
 
 ## At a glance
 
-- **Switch on the widget.** Compact **PC / VPS** buttons change systems without opening a window.
+- **Switch on the widget.** Compact **device buttons** change systems without opening a window.
 - **See the metrics that matter.** CPU, RAM, storage, and uptime; NVIDIA GPU usage, VRAM, and temperature on Windows.
 - **Keep it quiet.** Pulse lives in the menu bar. **Advanced** opens the dashboard and connection settings.
-- **Keep systems separate.** Each connection has its own credentials, cached readings, and history.
+- **Keep systems separate.** Each named device has its own credential, pinned certificate, cached readings, and history.
 - **Know when a system is offline.** Previous readings remain available; a missing connection never substitutes the other machine's data.
 - **Choose your size.** Small, medium, and large widgets, plus a classic large layout.
 
-## Quick start
+## Quick start: pair a device
 
-1. [Build and launch Pulse on your Mac](#build-the-mac-app) running **macOS 14 Sonoma or later**.
-2. Install an agent on your [Windows PC](#windows-agent), your [Linux VPS](#linux--oracle-vps-agent), or both.
-3. On your Mac, choose **Pulse menu bar → Advanced → gear**, enter the connection details, and save.
-4. Right-click the desktop → **Edit Widgets** → **Pulse**. Add a widget and use **PC / VPS** to switch.
+1. [Build and launch Pulse](#build-the-mac-app) on **macOS 14 Sonoma or later**.
+2. Open **Pulse menu bar → Advanced → Add device**.
+3. Choose **Windows** or **Linux**, enter the device's **public IPv4 address**, and leave HTTPS port **8843** unless you need another port.
+4. Click **Generate & copy install command**. Run the copied command on that device within **10 minutes**.
+5. Allow inbound TCP traffic to that port in the device's firewall and cloud/router rules.
+6. Pulse shows **Device ready to pair**. Compare its verification code with the installer, enter a name, and click **Approve & add device**.
+7. Add the widget from **desktop → Edit Widgets → Pulse**. Switch between your saved devices using its buttons.
 
-> The commands below install the **monitoring agent on the target machine**. They do not install the Mac app.
+Pulse initiates the connection to the public IP. **Your Mac needs no public IP, inbound port, account, or relay.** Keep Pulse running in the menu bar to collect fresh readings. Up to two devices use compact named buttons; with more devices, the widget shows previous/next buttons and a device count.
+
+> Publish the new pairing installers and `paired-agent/agent.py` to GitHub before using copied installation commands. The commands download from `StevenSteel7/Pulse/main`.
+
+### What happens during pairing?
+
+The copied command contains a random, single-use **pairing token**, not a permanent API key. The agent creates a TLS certificate, proves it knows your token, and waits for approval. Pulse binds that proof to the certificate presented by the device. After you verify the displayed code and approve, Pulse creates a separate permanent credential, stores it in your Mac's **login Keychain**, and pins the device's certificate for subsequent connections.
+
+The agent erases the pairing token on approval and stores only a hash of the permanent credential. Stats remain inaccessible before approval. [Protocol and security details](docs/PAIRING.md).
 
 ## Windows agent
 
-**Requires:** Windows PowerShell, Python **3.10+** on PATH, and administrator approval during setup.
+**Requires:** Windows PowerShell, **Python 3.10+** on PATH, and administrator approval.
 
-Paste this single line into **PowerShell on your Windows PC**:
+Use **Add device → Windows → Generate & copy install command** in Pulse. The personalized command downloads [the Windows pairing installer](https://raw.githubusercontent.com/StevenSteel7/Pulse/main/windows-agent/pair.ps1) and supplies your temporary token automatically.
 
-```powershell
-Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/StevenSteel7/Pulse/main/windows-agent/download.ps1' -OutFile "$env:TEMP\pulse-install.ps1"; if ($?) { powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$env:TEMP\pulse-install.ps1" }
-```
+The installer:
 
-[View the download script](windows-agent/download.ps1) · [Direct download](https://raw.githubusercontent.com/StevenSteel7/Pulse/main/windows-agent/download.ps1) · [Windows setup guide](windows-agent/README.md)
+- Uses `%LOCALAPPDATA%\PulsePairedAgent` for its Python environment and protected device state.
+- Generates a TLS certificate and prints a verification code.
+- Opens the chosen TCP port in Windows Firewall and starts the **PulsePairedAgent** scheduled task.
+- Starts the agent again when you log in to Windows.
 
-The installer downloads the agent to `%LOCALAPPDATA%\PulseAgent`, asks for your PC's LAN IPv4 address, creates a Python environment, generates an API key, adds a firewall rule for the **Private** network profile, and starts a scheduled task. The agent starts again when you log in. An existing configuration is preserved on reinstall.
+If the PC is behind a router, forward its public TCP port to the same port on the PC. A public address does not by itself bypass NAT or firewall rules. GPU telemetry requires NVIDIA's `nvidia-smi`; CPU, RAM, and disk monitoring work without it.
 
-Copy the printed **host**, **port**, and **API key** into Pulse's **PC** settings. GPU metrics require an NVIDIA GPU with `nvidia-smi`; other metrics work without it.
+[Windows setup guide](windows-agent/README.md) · [Installer source](windows-agent/pair.ps1)
 
 ## Linux / Oracle VPS agent
 
-**Requires:** a systemd-based Linux distribution and sudo access. Supports Ubuntu, Debian, and Oracle Linux on **ARM64 or x86-64**. Python 3 is installed if needed.
+**Requires:** a systemd-based Ubuntu, Debian, or Oracle Linux host and sudo access. Supports ARM64 and x86-64. The installer installs Python 3, OpenSSL, and curl if missing.
 
-Run this on your **Linux server**:
+Use **Add device → Linux → Generate & copy install command** in Pulse. The personalized command downloads [the Linux pairing installer](https://raw.githubusercontent.com/StevenSteel7/Pulse/main/linux-agent/pair.sh) and supplies your temporary token automatically.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/StevenSteel7/Pulse/main/linux-agent/install.sh -o pulse-install.sh && sudo bash pulse-install.sh
-```
+The installer creates a dedicated unprivileged service user, stores device state under `/var/lib/pulse-paired`, starts **pulse-paired.service**, and verifies the local HTTPS endpoint. It starts automatically at boot.
 
-[View the installer](linux-agent/install.sh) · [Direct download](https://raw.githubusercontent.com/StevenSteel7/Pulse/main/linux-agent/install.sh) · [Linux setup guide](linux-agent/README.md)
-
-The self-contained installer detects your CPU, RAM, and root filesystem, generates an API key, and starts an unprivileged systemd service that runs at boot. It preserves your connection settings and key on reinstall. No pip packages or containers are needed.
-
-### Connect securely from your Mac
-
-By default, the Linux agent listens on **127.0.0.1:8801**. Keep this SSH tunnel running on your **Mac**, replacing `USER` and `VPS_IP` with your SSH login and server address:
+For Oracle Cloud, allow inbound **TCP 8843** (or your chosen port) in both the applicable **NSG/security list** and the Linux firewall. Restrict the source to your Mac's public address when practical. The installer does not edit Oracle Cloud or Linux firewall rules.
 
 ```bash
-ssh -N -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -L 127.0.0.1:8802:127.0.0.1:8801 USER@VPS_IP
+sudo systemctl status pulse-paired --no-pager
+sudo journalctl -u pulse-paired -n 40 --no-pager
 ```
 
-In **Advanced → gear → Oracle VPS**, enter:
+[Linux setup guide](linux-agent/README.md) · [Installer source](linux-agent/pair.sh)
 
-| Setting | Value |
-|---|---|
-| Host / IP | `127.0.0.1` |
-| Port | `8802` |
-| HTTPS | Off — the SSH tunnel encrypts the connection |
-| API key | The key printed by the Linux installer |
+### Existing manual connections
 
-Click **Save**, then **VPS** on the widget. Closing the tunnel makes the VPS unavailable until you reconnect. This setup uses your existing SSH access and requires no extra public port.
+Existing PC/VPS settings are preserved. The older LAN/SSH agents remain available through [legacy installation instructions](GITHUB-INSTALL.md#legacy-manual-installation). Public-IP pairing installs a separate service on port 8843 and does not stop the old service on 8801.
 
-Already using a private network or VPN? Bind the agent to the VPS's reachable private interface with `--bind YOUR_PRIVATE_IP --port 8801`. [See the connection options](linux-agent/README.md#optional-direct-privatevpn-connection).
+The new flow supports **public IPv4 only**. Existing manual connections can still use LAN addresses, SSH tunnels, or an HTTPS reverse proxy.
 
 ## Build the Mac app
 
@@ -110,27 +110,31 @@ To start Pulse at login, add it in **System Settings → General → Login Items
 ## How it works
 
 ```text
-Windows PC ── read-only stats agent ──┐
-                                     ├── Pulse on Mac ── menu bar + desktop widget
-Linux VPS ── agent over SSH / VPN ────┘
+Windows PC ── HTTPS stats agent ──┐
+                                 ├── Pulse on Mac ── menu bar + desktop widget
+Linux VPS ─── HTTPS stats agent ──┘
 ```
 
-Agents expose `GET /stats`, authenticated with an `X-API-Key` header. Pulse polls the selected system every five seconds while running and shares its cached readings with the widget through a macOS App Group.
+Paired agents expose read-only `GET /stats` over pinned HTTPS, authenticated with an `X-API-Key` header. Pulse polls the selected system every five seconds while running and shares cached readings with the widget through a macOS App Group. Widgets have no credentials and perform no network requests.
 
 **Widget redraw timing is controlled by macOS.** Pulse requests refreshes, but a five-second poll does not guarantee a five-second desktop widget update. The menu bar and dashboard display the app's latest readings directly.
 
-The PC/VPS selection is shared across Pulse widgets and the app. Legacy single-PC settings migrate automatically. Linux servers use a CPU, memory, and storage layout rather than empty GPU gauges.
+The selected device is shared across Pulse widgets and the app. Legacy single-PC settings migrate automatically. Linux servers use a CPU, memory, and storage layout rather than empty GPU gauges.
 
 ## Troubleshooting
 
 | Symptom | Check |
 |---|---|
-| Windows agent is unreachable | Confirm its LAN address, API key, Private network profile, and `SixdxStatsAgent` scheduled task. |
-| VPS shows offline | Keep the SSH tunnel running. The default app-side port is **8802**, while the server listens on **8801**. |
-| Linux service won't start | Run `sudo journalctl -u pulse-agent -n 40 --no-pager`. |
-| Widget has no data but the app does | Both Xcode targets must use the same team and App Group. |
-| Desktop widget updates slowly | Keep Pulse running; WidgetKit controls redraw scheduling. |
-| Windows GPU says unavailable | Check that `nvidia-smi` works. CPU, RAM, and disk monitoring remain available. |
+| Waiting for the device | Run its copied command; verify the public IPv4 address, HTTPS port, and cloud/OS/router rules. |
+| Pairing command expired | Generate and run a new command. Check that the Mac and device clocks are correct. |
+| Verification codes differ | Do not approve. Confirm the IP and rerun a fresh command on the intended device. |
+| Approval response was lost | Use **Retry confirmation**. Pulse saved a recovery record before sending approval. |
+| Certificate changed | Re-pair the device. Pulse never silently accepts a changed certificate. |
+| Keychain error | Unlock your login Keychain and allow Pulse to access its device credentials. |
+| Widget is stale | Keep Pulse running. Widgets use its cached readings; macOS controls redraw timing. |
+| No system notification | The **Device ready** banner remains available in Advanced and the menu bar. |
+
+To disconnect a paired device, choose **Advanced → gear → device → Revoke & remove device**. The device must be reachable so Pulse can revoke its credential first. To use it again, run a fresh pairing command.
 
 ## Development
 
@@ -138,8 +142,9 @@ The PC/VPS selection is shared across Pulse widgets and the app. Legacy single-P
 Pulse/             macOS menu bar, dashboard, and settings
 PulseWidget/       WidgetKit layouts and timeline provider
 Shared/            Models, system selection, caches, and App Intent
-windows-agent/     Windows agent, installer, and GitHub bootstrap
-linux-agent/       Self-contained Linux installer and service
+windows-agent/     Windows pairing installer and legacy LAN agent
+linux-agent/       Linux pairing installer and legacy SSH/LAN installer
+paired-agent/      Shared HTTPS agent and enrollment protocol
 tests/             Linux endpoint and Swift storage/decoding checks
 docs/images/       Widget previews using sample data
 ```
@@ -150,12 +155,14 @@ Run the local checks on macOS:
 ./tests/run.sh
 ```
 
-These cover the Linux payload's metric parsing and authentication, Swift JSON decoding, settings migration, and separate system caches. Windows setup and a real Linux systemd installation require their respective operating systems.
+These cover metric parsing, settings migration, secret-free profile serialization, isolated caches, expiry and replay rejection, concurrent approval, revocation, and a real Swift-to-Python HTTPS integration test including certificate pinning and redirect rejection. Windows installation and systemd startup require testing on their respective operating systems.
 
 ## Connection notes
 
-Agents provide read-only telemetry. LAN HTTP does not encrypt the API key; use an SSH tunnel, a private VPN, or an HTTPS reverse proxy for remote access. Pulse supports HTTPS connections. The Linux installer does not change Oracle Cloud or host firewall rules.
+New paired connections always use HTTPS with an explicitly verified certificate. The temporary command can appear in clipboard or shell history; it expires after ten minutes, and cannot authorize telemetry without approval. Pulse clears its copied command on cancellation, expiry, or completion if the clipboard has not since changed.
 
-Keep live `config.json` files and API keys out of Git. The included ignore rules cover runtime configuration and local build output. Mac connection keys are stored in the shared App Group's `systems.json`, not the Keychain.
+The agent is read-only; it has no terminal, file access, or remote-control endpoint. Use a fresh pairing command to replace a lost credential or changed certificate. Re-pairing the same agent revokes its previous controller.
 
-[Detailed installation commands](GITHUB-INSTALL.md) · [Windows guide](windows-agent/README.md) · [Linux guide](linux-agent/README.md)
+Keep real configuration, certificate private keys, and API keys out of Git. Mac device credentials are kept in the login Keychain; shared profiles and widget snapshots contain no new credentials. Legacy plaintext configuration may remain as a migration backup from older installs.
+
+[Pairing design](docs/PAIRING.md) · [Installation reference](GITHUB-INSTALL.md) · [Windows guide](windows-agent/README.md) · [Linux guide](linux-agent/README.md)

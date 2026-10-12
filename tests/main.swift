@@ -1,13 +1,5 @@
 import Foundation
 
-// Isolated filesystem substitute: never read or mutate the user's settings.
-enum SharedContainer {
-    static let legacyDirectory = FileManager.default.temporaryDirectory.appendingPathComponent("pulse-tests-\(UUID().uuidString)")
-    static let directory: URL? = legacyDirectory.appendingPathComponent("group")
-    static var settingsFile: URL? { directory?.appendingPathComponent("settings.json") }
-    static var legacySettingsFile: URL { legacyDirectory.appendingPathComponent("settings.json") }
-}
-
 func check(_ condition: @autoclosure () -> Bool, _ message: String) {
     if !condition() { fatalError(message) }
 }
@@ -61,3 +53,22 @@ SharedStore.resetSnapshotCache()
 check(SharedStore.load(settings: pc) == nil && SharedStore.load(settings: vps) == nil, "Reset removes both caches")
 check(SettingsStore.profiles()[0].apiKey == "old-secret", "Reset never removes settings")
 print("PASS: migration, selection, Linux decoding, isolated caches, stale responses, history limits, URL validation")
+
+let profileJSON = try String(contentsOf: SharedContainer.directory!.appendingPathComponent("systems.json"), encoding: .utf8)
+check(!profileJSON.contains("old-secret") && !profileJSON.contains("vps-secret"), "Profile JSON never stores secrets")
+var third = PulseSettings(id: "device-third", name: "Second server", host: "8.8.8.8", port: 8843, apiKey: "third-secret", useTLS: true, certificateFingerprint: String(repeating: "a", count: 64))
+try SettingsStore.save(third)
+check(SettingsStore.profiles().count == 3, "Dynamic device list")
+check(SettingsStore.profiles().last?.certificateFingerprint == third.certificateFingerprint, "Certificate pin persisted")
+try SettingsStore.select(third.id)
+check(SettingsStore.load().id == third.id, "Select arbitrary paired device")
+try SettingsStore.remove(third.id)
+check(SettingsStore.profiles().count == 2 && CredentialStore.values[third.id] == nil, "Remove profile and credential")
+print("PASS: Keychain-only profile serialization and dynamic device selection")
+
+SharedStore.save(stats, settings: pc)
+SharedStore.markUnreachable(settings: pc)
+check(SharedStore.load(settings: pc)?.isReachable == false, "Offline status reaches widgets without exposing credentials")
+var redacted = pc
+redacted.apiKey = ""
+check(redacted.cacheKey == pc.cacheKey, "Widget cache identity doesn't require an API key")

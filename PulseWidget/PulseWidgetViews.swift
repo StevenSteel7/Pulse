@@ -70,27 +70,42 @@ struct PulseWidgetView: View {
 private struct WidgetSystemSwitcher: View {
     let entry: PulseEntry
 
+    private var index: Int { entry.systems.firstIndex { $0.id == entry.systemID } ?? 0 }
     var body: some View {
         HStack(spacing: 3) {
-            systemButton("PC", id: "pc")
-            systemButton("VPS", id: "vps")
+            if entry.systems.count <= 2 {
+                ForEach(entry.systems) { system in
+                    Button(intent: SwitchSystemIntent(systemID: system.id)) {
+                        Text(String(system.name.prefix(5)))
+                            .font(.system(size: 8, weight: .bold, design: .rounded))
+                            .foregroundStyle(entry.systemID == system.id ? .white : .white.opacity(0.45))
+                            .frame(width: 30, height: 20)
+                            .background(entry.systemID == system.id ? PulseTheme.cpuColor.opacity(0.4) : .clear, in: Capsule())
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Switch to \(system.name)")
+                    .accessibilityValue(entry.systemID == system.id ? "Selected" : "")
+                }
+            } else {
+                navigationButton(offset: -1, symbol: "chevron.left")
+                Text("\(index + 1)/\(entry.systems.count)")
+                    .font(.system(size: 8, weight: .semibold)).foregroundStyle(.white.opacity(0.7))
+                navigationButton(offset: 1, symbol: "chevron.right")
+            }
         }
         .padding(3)
         .background(.white.opacity(0.05), in: Capsule())
         .fixedSize()
     }
 
-    private func systemButton(_ title: String, id: String) -> some View {
-        Button(intent: SwitchSystemIntent(systemID: id)) {
-            Text(title)
-                .font(.system(size: 8, weight: .bold, design: .rounded))
-                .foregroundStyle(entry.systemID == id ? .white : .white.opacity(0.45))
-                .frame(width: 25, height: 20)
-                .background(entry.systemID == id ? PulseTheme.cpuColor.opacity(0.4) : .clear, in: Capsule())
+    private func navigationButton(offset: Int, symbol: String) -> some View {
+        let target = entry.systems[(index + offset + entry.systems.count) % entry.systems.count]
+        return Button(intent: SwitchSystemIntent(systemID: target.id)) {
+            Image(systemName: symbol).font(.system(size: 8, weight: .bold))
+                .foregroundStyle(.white).frame(width: 16, height: 20)
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("Switch to \(id == "pc" ? "PC" : "VPS")")
-        .accessibilityValue(entry.systemID == id ? (entry.isReachable ? "Selected, online" : "Selected, offline") : "")
+        .accessibilityLabel("Switch to \(target.name)")
     }
 }
 
@@ -159,7 +174,7 @@ struct SmallPulseView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text(stats.hostname)
+                Text(entry.systemName)
                     .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundStyle(.white)
@@ -198,7 +213,7 @@ struct MediumPulseView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 5) {
                 Circle().fill(entry.isReachable ? Color.green : Color.red).frame(width: 5, height: 5)
-                Text(stats.hostname)
+                Text(entry.systemName)
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundStyle(.white)
                     .lineLimit(1)
@@ -242,7 +257,7 @@ private struct ClassicLargePulseView: View {
         VStack(alignment: .leading, spacing: 14) {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(stats.hostname).font(.headline).foregroundStyle(.white)
+                    Text(entry.systemName).font(.headline).foregroundStyle(.white)
                     Text(stats.os).font(.system(size: 10)).foregroundStyle(.white.opacity(0.5))
                 }
                 Spacer()
@@ -400,7 +415,7 @@ struct LargePulseView: View {
         VStack(alignment: .leading, spacing: 9) {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(stats.hostname).font(.headline).foregroundStyle(.white)
+                    Text(entry.systemName).font(.headline).foregroundStyle(.white)
                     Text(stats.os).font(.system(size: 10)).foregroundStyle(.white.opacity(0.5))
                 }
                 Spacer()

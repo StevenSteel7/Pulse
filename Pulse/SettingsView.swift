@@ -6,6 +6,8 @@ struct SettingsView: View {
     @State private var selectedID: String
     @State private var showApiKey = false
     @State private var saveError: String?
+    @State private var isRemoving = false
+    @State private var confirmRemoval = false
 
     let onSave: ([PulseSettings], String) throws -> Void
 
@@ -29,11 +31,16 @@ struct SettingsView: View {
             Picker("System", selection: $selectedID) {
                 ForEach(profiles) { profile in Text(profile.name).tag(profile.id) }
             }
-            .pickerStyle(.segmented)
+            .pickerStyle(.menu)
             .onChange(of: selectedID) { _, _ in showApiKey = false }
 
             Form {
                 TextField("Name", text: $profiles[index].name)
+                if profiles[index].certificateFingerprint != nil {
+                    LabeledContent("Connection", value: "https://\(profiles[index].host):\(profiles[index].port)")
+                    Label("Certificate verified · Keychain protected", systemImage: "lock.shield")
+                        .font(.caption).foregroundStyle(.green)
+                } else {
                 TextField("Host / IP", text: $profiles[index].host)
                 TextField("Port", value: $profiles[index].port, format: .number.grouping(.never))
                 Toggle("HTTPS", isOn: $profiles[index].useTLS)
@@ -49,15 +56,19 @@ struct SettingsView: View {
                     .buttonStyle(.plain)
                     .accessibilityLabel(showApiKey ? "Hide API key" : "Show API key")
                 }
+                }
+
             }
             .textFieldStyle(.roundedBorder)
 
-            Text(selectedID == "vps"
-                 ? "For the default SSH tunnel, use 127.0.0.1, port 8802, and the key printed by the Linux installer. A direct VPN connection uses the VPS VPN address and port 8801."
-                 : "Use your Windows agent's address, port, and API key. Your existing connection is preserved.")
+            Text(profiles[index].certificateFingerprint != nil
+                 ? "To change this device's address or certificate, add it again using a fresh pairing command."
+                 : "This is a legacy manual connection. For a public IP, close Settings and use Add device to set up verified HTTPS.")
                 .font(.caption).foregroundStyle(.secondary)
-            Text("Leave the API key empty for a system you haven't set up yet.")
-                .font(.caption2).foregroundStyle(.secondary)
+            Button(profiles[index].certificateFingerprint != nil ? "Revoke & remove device" : "Remove connection", role: .destructive) {
+                confirmRemoval = true
+            }
+            .disabled(isRemoving)
             if let saveError { Text(saveError).font(.caption).foregroundStyle(.red) }
 
             HStack {
@@ -79,10 +90,26 @@ struct SettingsView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .keyboardShortcut(.defaultAction)
-                .disabled(!isValid)
+                .disabled(!isValid || isRemoving)
             }
         }
         .padding(24)
         .frame(width: 440)
+        .confirmationDialog("Remove this device? Paired devices must be online so Pulse can revoke their credential first.", isPresented: $confirmRemoval) {
+            Button("Remove device", role: .destructive) {
+                let profile = profiles[index]
+                isRemoving = true
+                Task {
+                    defer { isRemoving = false }
+                    do {
+                        if profile.certificateFingerprint != nil { try await PairingProtocol.revoke(profile) }
+                        try SettingsStore.remove(profile.id)
+                        profiles = SettingsStore.profiles()
+                        selectedID = profiles[0].id
+                        try onSave(profiles, selectedID)
+                    } catch { saveError = "Couldn't remove device: \(error.localizedDescription). Check its connection and retry." }
+                }
+            }
+        }
     }
 }

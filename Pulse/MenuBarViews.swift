@@ -33,7 +33,7 @@ struct MenuBarContentView: View {
                         .font(.system(size: 9, weight: .bold))
                         .tracking(2)
                         .foregroundStyle(.white.opacity(0.45))
-                    Text(monitor.latestStats?.hostname ?? monitor.settings.name)
+                    Text(monitor.settings.name)
                         .font(.system(size: 15, weight: .semibold))
                         .lineLimit(1)
                 }
@@ -46,7 +46,7 @@ struct MenuBarContentView: View {
                     Text(profile.name).tag(profile.id)
                 }
             }
-            .pickerStyle(.segmented)
+            .pickerStyle(.menu)
 
             if let stats = monitor.latestStats {
                 VStack(spacing: 16) {
@@ -75,6 +75,8 @@ struct MenuBarContentView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(PulseTheme.cardFill, in: RoundedRectangle(cornerRadius: 14))
             }
+
+            PairingMenuNotice(coordinator: monitor.pairing, openAdvanced: openAdvanced)
 
             HStack {
                 Button(action: openAdvanced) {
@@ -118,6 +120,23 @@ struct MenuBarContentView: View {
                 .font(.caption)
                 .monospacedDigit()
                 .frame(width: 36, alignment: .trailing)
+        }
+    }
+}
+
+private struct PairingMenuNotice: View {
+    @ObservedObject var coordinator: PairingCoordinator
+    let openAdvanced: () -> Void
+    var body: some View {
+        if coordinator.identity != nil || coordinator.recovery != nil {
+            Button {
+                openAdvanced()
+                coordinator.isPresented = true
+            } label: {
+                Label("Device ready · Review pairing", systemImage: "checkmark.shield.fill")
+                    .font(.caption).foregroundStyle(PulseTheme.gpuColor)
+            }
+            .buttonStyle(.plain)
         }
     }
 }
