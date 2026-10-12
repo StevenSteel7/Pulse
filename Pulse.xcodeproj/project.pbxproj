@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05C437A9D258A122B7AA8C83 /* PulseComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854138A44FCD8099671B73A3 /* PulseComponents.swift */; };
+		0B420AE5C0ACDEF453A0338D /* SharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA66A557A9E25DAD6082673E /* SharedStore.swift */; };
+		1EC717D01EEF0EBBF317816B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50020AF3D93D7F471A5FFE4 /* Assets.xcassets */; };
+		21BB63A7F26F8D2307E5F760 /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A83755A1FE59BBD22435C7 /* Formatting.swift */; };
+		2A294741604ED11BCA7E7E11 /* PulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5309CAF2CC1BC7C626E937 /* PulseApp.swift */; };
+		2E2946E3E79076046202DC7E /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D151BBB65556776E2BB17F7 /* SharedContainer.swift */; };
+		367D745FC681322325B6B6E3 /* PulseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE816997F3C6FFD6038D45 /* PulseSettings.swift */; };
+		3C678112ECB4D642239E0608 /* SwitchSystemIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81294C5FCC9765E9B6B91503 /* SwitchSystemIntent.swift */; };
+		45B605894125794E2CF58037 /* StatsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F0E6733F577AFDDD376AE /* StatsClient.swift */; };
+		4708A7A978E5EAF31EA89C88 /* PulseWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7624C3E46EB17C958DEBD026 /* PulseWidgetExtension.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		540844F39C17DCED73AFE6EC /* PulseComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854138A44FCD8099671B73A3 /* PulseComponents.swift */; };
+		590275E137DD884C8AFA8F8D /* MenuBarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2BED8137A9FF89E9CE0AE /* MenuBarViews.swift */; };
+		652697D2896686B67B69D530 /* StatsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F0E6733F577AFDDD376AE /* StatsClient.swift */; };
+		68820A72998494281B77A725 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A9EBCB9547AAD3B2FF3F9 /* DashboardView.swift */; };
+		6E8B95013B27E4F785B23739 /* PulseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE816997F3C6FFD6038D45 /* PulseSettings.swift */; };
+		7368461E0243D99807F6A10F /* PulseWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4E7A7781EC8B1FA863F151 /* PulseWidget.swift */; };
+		7D4E22804D4C8608E9C090E9 /* SharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA66A557A9E25DAD6082673E /* SharedStore.swift */; };
+		89F298E473FC9002625D1B41 /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A83755A1FE59BBD22435C7 /* Formatting.swift */; };
+		925D1FCC76ADA2B9DAF43E3D /* StatsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA46D05D76889C31E598D /* StatsModels.swift */; };
+		AB2FF46623DE16A532E1405F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B498B8CE0F9931DB5FED231 /* SettingsView.swift */; };
+		B107E9E22017A46606BA472A /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D151BBB65556776E2BB17F7 /* SharedContainer.swift */; };
+		B8D8D220CF3482BE3E697DA5 /* PulseWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159939A2FC13BCF2C84122E3 /* PulseWidgetViews.swift */; };
+		CFEB86F8B259BB84BEC691B2 /* PulseWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852944254156DE5A2181FD3B /* PulseWidgetBundle.swift */; };
+		D7BF13393F21F0B4BC530140 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52643D55397928A08141F996 /* Theme.swift */; };
+		D89BE77424B91E56B9FF1441 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EEF346D1A5F99B6D75474EC /* Assets.xcassets */; };
+		DD787D06B22838C7144F2ED8 /* StatsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA46D05D76889C31E598D /* StatsModels.swift */; };
+		DF5526C9367386E9C0A4A2DF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52643D55397928A08141F996 /* Theme.swift */; };
+		EEEB632D7F3D3DE01DE1E7D6 /* PulseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D56ACE32FFB4495586CE0D /* PulseMonitor.swift */; };
+		FC4512D6E38E5DCA898F51C6 /* SwitchSystemIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81294C5FCC9765E9B6B91503 /* SwitchSystemIntent.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6621569C32B5AD4B0AA25BFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84FEC84833EC6BF77563A3F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 642E7132A59AEE61031B5676;
+			remoteInfo = PulseWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		44496BD1ABC9EFB9A195FCD8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4708A7A978E5EAF31EA89C88 /* PulseWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		01D56ACE32FFB4495586CE0D /* PulseMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseMonitor.swift; sourceTree = "<group>"; };
+		0A4E7A7781EC8B1FA863F151 /* PulseWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseWidget.swift; sourceTree = "<group>"; };
+		0EEF346D1A5F99B6D75474EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		13FEF2D2118D74C3572DF349 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		159939A2FC13BCF2C84122E3 /* PulseWidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseWidgetViews.swift; sourceTree = "<group>"; };
+		2B498B8CE0F9931DB5FED231 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3D151BBB65556776E2BB17F7 /* SharedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedContainer.swift; sourceTree = "<group>"; };
+		52643D55397928A08141F996 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		73E2BED8137A9FF89E9CE0AE /* MenuBarViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarViews.swift; sourceTree = "<group>"; };
+		7624C3E46EB17C958DEBD026 /* PulseWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PulseWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		81294C5FCC9765E9B6B91503 /* SwitchSystemIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSystemIntent.swift; sourceTree = "<group>"; };
+		852944254156DE5A2181FD3B /* PulseWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseWidgetBundle.swift; sourceTree = "<group>"; };
+		854138A44FCD8099671B73A3 /* PulseComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseComponents.swift; sourceTree = "<group>"; };
+		894F0E6733F577AFDDD376AE /* StatsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsClient.swift; sourceTree = "<group>"; };
+		9D5309CAF2CC1BC7C626E937 /* PulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApp.swift; sourceTree = "<group>"; };
+		9EBE816997F3C6FFD6038D45 /* PulseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseSettings.swift; sourceTree = "<group>"; };
+		A50020AF3D93D7F471A5FFE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C03A9EBCB9547AAD3B2FF3F9 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		D5A83755A1FE59BBD22435C7 /* Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatting.swift; sourceTree = "<group>"; };
+		EA66A557A9E25DAD6082673E /* SharedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStore.swift; sourceTree = "<group>"; };
+		EE1BA46D05D76889C31E598D /* StatsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsModels.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		16C8605271C6A45188D07E13 /* Pulse */ = {
+			isa = PBXGroup;
+			children = (
+				0EEF346D1A5F99B6D75474EC /* Assets.xcassets */,
+				C03A9EBCB9547AAD3B2FF3F9 /* DashboardView.swift */,
+				73E2BED8137A9FF89E9CE0AE /* MenuBarViews.swift */,
+				9D5309CAF2CC1BC7C626E937 /* PulseApp.swift */,
+				01D56ACE32FFB4495586CE0D /* PulseMonitor.swift */,
+				2B498B8CE0F9931DB5FED231 /* SettingsView.swift */,
+			);
+			path = Pulse;
+			sourceTree = "<group>";
+		};
+		1FEE830988994786371D8E45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13FEF2D2118D74C3572DF349 /* Pulse.app */,
+				7624C3E46EB17C958DEBD026 /* PulseWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		73399E6A7465893DBECDE1F2 /* PulseWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A50020AF3D93D7F471A5FFE4 /* Assets.xcassets */,
+				0A4E7A7781EC8B1FA863F151 /* PulseWidget.swift */,
+				852944254156DE5A2181FD3B /* PulseWidgetBundle.swift */,
+				159939A2FC13BCF2C84122E3 /* PulseWidgetViews.swift */,
+			);
+			path = PulseWidget;
+			sourceTree = "<group>";
+		};
+		7A87E3B4AE2E59047EFB8F61 = {
+			isa = PBXGroup;
+			children = (
+				16C8605271C6A45188D07E13 /* Pulse */,
+				73399E6A7465893DBECDE1F2 /* PulseWidget */,
+				C73988AEBE5644AB18939654 /* Shared */,
+				1FEE830988994786371D8E45 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9072663F8778BC78B9F39CF1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				854138A44FCD8099671B73A3 /* PulseComponents.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C73988AEBE5644AB18939654 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D5A83755A1FE59BBD22435C7 /* Formatting.swift */,
+				9EBE816997F3C6FFD6038D45 /* PulseSettings.swift */,
+				3D151BBB65556776E2BB17F7 /* SharedContainer.swift */,
+				EA66A557A9E25DAD6082673E /* SharedStore.swift */,
+				894F0E6733F577AFDDD376AE /* StatsClient.swift */,
+				EE1BA46D05D76889C31E598D /* StatsModels.swift */,
+				81294C5FCC9765E9B6B91503 /* SwitchSystemIntent.swift */,
+				52643D55397928A08141F996 /* Theme.swift */,
+				9072663F8778BC78B9F39CF1 /* UI */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		642E7132A59AEE61031B5676 /* PulseWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB79EA2C98A98BFB56B28A40 /* Build configuration list for PBXNativeTarget "PulseWidgetExtension" */;
+			buildPhases = (
+				24B81E518ECA83705247F1A2 /* Sources */,
+				67D0D55DA717BAD3BA2ED283 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PulseWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = PulseWidgetExtension;
+			productReference = 7624C3E46EB17C958DEBD026 /* PulseWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		CF79B1BAD3D70F54153FE0B3 /* Pulse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9608D96881FD5C17BB380FA0 /* Build configuration list for PBXNativeTarget "Pulse" */;
+			buildPhases = (
+				D70CFAE236269B6E146109F4 /* Sources */,
+				606EBA1EB03BF3A2D7674713 /* Resources */,
+				44496BD1ABC9EFB9A195FCD8 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE7E094745D072E21012BD5A /* PBXTargetDependency */,
+			);
+			name = Pulse;
+			packageProductDependencies = (
+			);
+			productName = Pulse;
+			productReference = 13FEF2D2118D74C3572DF349 /* Pulse.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84FEC84833EC6BF77563A3F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					642E7132A59AEE61031B5676 = {
+						DevelopmentTeam = ZX4J42CV74;
+						ProvisioningStyle = Automatic;
+					};
+					CF79B1BAD3D70F54153FE0B3 = {
+						DevelopmentTeam = ZX4J42CV74;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AEADBFB0BC46A63478A94A51 /* Build configuration list for PBXProject "Pulse" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 7A87E3B4AE2E59047EFB8F61;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1FEE830988994786371D8E45 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF79B1BAD3D70F54153FE0B3 /* Pulse */,
+				642E7132A59AEE61031B5676 /* PulseWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		606EBA1EB03BF3A2D7674713 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D89BE77424B91E56B9FF1441 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67D0D55DA717BAD3BA2ED283 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EC717D01EEF0EBBF317816B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24B81E518ECA83705247F1A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89F298E473FC9002625D1B41 /* Formatting.swift in Sources */,
+				05C437A9D258A122B7AA8C83 /* PulseComponents.swift in Sources */,
+				367D745FC681322325B6B6E3 /* PulseSettings.swift in Sources */,
+				7368461E0243D99807F6A10F /* PulseWidget.swift in Sources */,
+				CFEB86F8B259BB84BEC691B2 /* PulseWidgetBundle.swift in Sources */,
+				B8D8D220CF3482BE3E697DA5 /* PulseWidgetViews.swift in Sources */,
+				2E2946E3E79076046202DC7E /* SharedContainer.swift in Sources */,
+				0B420AE5C0ACDEF453A0338D /* SharedStore.swift in Sources */,
+				45B605894125794E2CF58037 /* StatsClient.swift in Sources */,
+				DD787D06B22838C7144F2ED8 /* StatsModels.swift in Sources */,
+				FC4512D6E38E5DCA898F51C6 /* SwitchSystemIntent.swift in Sources */,
+				DF5526C9367386E9C0A4A2DF /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D70CFAE236269B6E146109F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68820A72998494281B77A725 /* DashboardView.swift in Sources */,
+				21BB63A7F26F8D2307E5F760 /* Formatting.swift in Sources */,
+				590275E137DD884C8AFA8F8D /* MenuBarViews.swift in Sources */,
+				2A294741604ED11BCA7E7E11 /* PulseApp.swift in Sources */,
+				540844F39C17DCED73AFE6EC /* PulseComponents.swift in Sources */,
+				EEEB632D7F3D3DE01DE1E7D6 /* PulseMonitor.swift in Sources */,
+				6E8B95013B27E4F785B23739 /* PulseSettings.swift in Sources */,
+				AB2FF46623DE16A532E1405F /* SettingsView.swift in Sources */,
+				B107E9E22017A46606BA472A /* SharedContainer.swift in Sources */,
+				7D4E22804D4C8608E9C090E9 /* SharedStore.swift in Sources */,
+				652697D2896686B67B69D530 /* StatsClient.swift in Sources */,
+				925D1FCC76ADA2B9DAF43E3D /* StatsModels.swift in Sources */,
+				3C678112ECB4D642239E0608 /* SwitchSystemIntent.swift in Sources */,
+				D7BF13393F21F0B4BC530140 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE7E094745D072E21012BD5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 642E7132A59AEE61031B5676 /* PulseWidgetExtension */;
+			targetProxy = 6621569C32B5AD4B0AA25BFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2E7048B1817FBF01C246A8F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = ZX4J42CV74;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PULSE_APP_GROUP_IDENTIFIER = "$(DEVELOPMENT_TEAM).com.stevensteel.pulse";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2F09822608AFECF3C81BC90B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PulseWidget/PulseWidget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PulseWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stevensteel.pulse.widget;
+				PRODUCT_NAME = PulseWidget;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		411DF2BAB77FB4C60926FF60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PulseWidget/PulseWidget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PulseWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stevensteel.pulse.widget;
+				PRODUCT_NAME = PulseWidget;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		78CFDB6D85EA0A925D164718 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pulse/Pulse.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Pulse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stevensteel.pulse;
+				PRODUCT_NAME = Pulse;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DF81B04A566426AD422B92B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pulse/Pulse.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Pulse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stevensteel.pulse;
+				PRODUCT_NAME = Pulse;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FA223E74BBF86702C72CD3A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ZX4J42CV74;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PULSE_APP_GROUP_IDENTIFIER = "$(DEVELOPMENT_TEAM).com.stevensteel.pulse";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9608D96881FD5C17BB380FA0 /* Build configuration list for PBXNativeTarget "Pulse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78CFDB6D85EA0A925D164718 /* Debug */,
+				DF81B04A566426AD422B92B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AEADBFB0BC46A63478A94A51 /* Build configuration list for PBXProject "Pulse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA223E74BBF86702C72CD3A8 /* Debug */,
+				2E7048B1817FBF01C246A8F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FB79EA2C98A98BFB56B28A40 /* Build configuration list for PBXNativeTarget "PulseWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F09822608AFECF3C81BC90B /* Debug */,
+				411DF2BAB77FB4C60926FF60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84FEC84833EC6BF77563A3F6 /* Project object */;
+}

@@ -1,0 +1,74 @@
+name: Pulse
+options:
+  bundleIdPrefix: com.stevensteel.pulse
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "3"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    ENABLE_HARDENED_RUNTIME: true
+    ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: false
+    # macOS App Group identifiers must start with the signing Team ID.
+    # Keep both targets on this same team so the sandboxed widget can read
+    # settings and snapshots written by the main app.
+    DEVELOPMENT_TEAM: ZX4J42CV74
+    PULSE_APP_GROUP_IDENTIFIER: "$(DEVELOPMENT_TEAM).com.stevensteel.pulse"
+    CODE_SIGN_STYLE: Automatic
+
+targets:
+  Pulse:
+    type: application
+    platform: macOS
+    sources:
+      - path: Pulse
+        excludes:
+          - Info.plist
+          - Pulse.entitlements
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.stevensteel.pulse
+        PRODUCT_NAME: Pulse
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        GENERATE_INFOPLIST_FILE: false
+        INFOPLIST_FILE: Pulse/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Pulse/Pulse.entitlements
+    dependencies:
+      - target: PulseWidgetExtension
+        embed: true
+        codeSign: true
+
+  PulseWidgetExtension:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: PulseWidget
+        excludes:
+          - Info.plist
+          - PulseWidget.entitlements
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.stevensteel.pulse.widget
+        PRODUCT_NAME: PulseWidget
+        GENERATE_INFOPLIST_FILE: false
+        INFOPLIST_FILE: PulseWidget/Info.plist
+        CODE_SIGN_ENTITLEMENTS: PulseWidget/PulseWidget.entitlements
+        SKIP_INSTALL: true
+
+schemes:
+  Pulse:
+    build:
+      targets:
+        Pulse: all
+        PulseWidgetExtension: all
+    run:
+      config: Debug
+    archive:
+      config: Release

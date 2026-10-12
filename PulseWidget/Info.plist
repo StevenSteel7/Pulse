@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Pulse Widget</string>
+	<key>PulseAppGroupIdentifier</key>
+	<string>$(PULSE_APP_GROUP_IDENTIFIER)</string>
+	<key>CFBundlePackageType</key>
+	<string>XPC!</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<!-- NSAllowsArbitraryLoads is required once SIXDX is reached over a public
+	     IP for remote access (see windows-agent/README.md "Remote access over
+	     the internet"): ATS's NSAllowsLocalNetworking exception only covers
+	     private/LAN addresses. NSAllowsLocalNetworking must NOT be set
+	     alongside it - per Apple's documented ATS behavior, NSAllowsArbitraryLoads
+	     is silently ignored if NSAllowsLocalNetworking (or NSExceptionDomains)
+	     is also present in this dict, which is what caused -1022 failures even
+	     with NSAllowsArbitraryLoads set to true. Arbitrary loads already covers
+	     local networking, so NSAllowsLocalNetworking is unnecessary here. -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Pulse connects to SIXDX on your local network to read live CPU, RAM, GPU and disk stats.</string>
+	<key>NSExtension</key>
+	<dict>
+		<key>NSExtensionPointIdentifier</key>
+		<string>com.apple.widgetkit-extension</string>
+	</dict>
+</dict>
+</plist>

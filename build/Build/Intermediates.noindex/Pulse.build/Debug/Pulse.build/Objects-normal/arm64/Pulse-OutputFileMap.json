@@ -1,0 +1,159 @@
+{
+  "" : {
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Pulse-primary.dia",
+    "emit-module-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Pulse-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Pulse-primary-emit-module.dia",
+    "pch" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Pulse-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Pulse-primary.swiftdeps"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Pulse/DashboardView.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/DashboardView.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/DashboardView.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/DashboardView.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/DashboardView.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/DashboardView.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/DashboardView.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/DashboardView.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/DashboardView~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Pulse/MenuBarViews.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/MenuBarViews.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/MenuBarViews.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/MenuBarViews.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/MenuBarViews.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/MenuBarViews.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/MenuBarViews.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/MenuBarViews.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/MenuBarViews~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Pulse/PulseApp.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseApp.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseApp.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseApp.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseApp.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseApp.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseApp.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseApp.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseApp~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Pulse/PulseMonitor.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseMonitor.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseMonitor.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseMonitor.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseMonitor.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseMonitor.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseMonitor.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseMonitor.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseMonitor~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Pulse/SettingsView.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsView.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsView.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsView.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsView.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsView.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsView.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsView.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SettingsView~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Shared/Formatting.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Formatting.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Formatting.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Formatting.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Formatting.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Formatting.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Formatting.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Formatting.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Formatting~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Shared/PulseSettings.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseSettings.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseSettings.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseSettings.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseSettings.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseSettings.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseSettings.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseSettings.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseSettings~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Shared/SharedContainer.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedContainer.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedContainer.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedContainer.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedContainer.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedContainer.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedContainer.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedContainer.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedContainer~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Shared/SharedStore.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedStore.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedStore.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedStore.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedStore.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedStore.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedStore.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedStore.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SharedStore~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Shared/StatsClient.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsClient.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsClient.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsClient.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsClient.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsClient.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsClient.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsClient.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsClient~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Shared/StatsModels.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsModels.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsModels.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsModels.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsModels.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsModels.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsModels.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsModels.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/StatsModels~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Shared/SwitchSystemIntent.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SwitchSystemIntent.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SwitchSystemIntent.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SwitchSystemIntent.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SwitchSystemIntent.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SwitchSystemIntent.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SwitchSystemIntent.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SwitchSystemIntent.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/SwitchSystemIntent~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Shared/Theme.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Theme.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Theme.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Theme.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Theme.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Theme.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Theme.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Theme.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/Theme~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/Shared/UI/PulseComponents.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseComponents.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseComponents.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseComponents.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseComponents.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseComponents.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseComponents.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseComponents.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/PulseComponents~partial.swiftmodule"
+  },
+  "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/stevensteel7/Documents/Projects/StaTer/macos-app/build/Build/Intermediates.noindex/Pulse.build/Debug/Pulse.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}

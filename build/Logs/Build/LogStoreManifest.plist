@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>13</integer>
+	<key>logs</key>
+	<dict>
+		<key>B2FE337E-F8B1-48ED-B1C6-0475F847A4CB</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B2FE337E-F8B1-48ED-B1C6-0475F847A4CB.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>2</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulse project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulse</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project Pulse with scheme Pulse and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>813495943.76138401</real>
+			<key>timeStoppedRecording</key>
+			<real>813495945.25852501</real>
+			<key>title</key>
+			<string>Building project Pulse with scheme Pulse and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>B2FE337E-F8B1-48ED-B1C6-0475F847A4CB</string>
+		</dict>
+		<key>E63B91CF-CA88-4F3B-8DFC-541ADD238CB7</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E63B91CF-CA88-4F3B-8DFC-541ADD238CB7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulse project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulse</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project Pulse with scheme Pulse and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>813496040.73637295</real>
+			<key>timeStoppedRecording</key>
+			<real>813496046.08545399</real>
+			<key>title</key>
+			<string>Building project Pulse with scheme Pulse and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>E63B91CF-CA88-4F3B-8DFC-541ADD238CB7</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
