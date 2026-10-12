@@ -1,0 +1,6 @@
+{
+  "host": "192.168.1.54",
+  "port": 8801,
+  "api_key": "REPLACE-WITH-A-LONG-RANDOM-SECRET",
+  "disk_path": "C:\\"
+}

@@ -64,25 +64,19 @@ See [Oracle security rules](https://docs.oracle.com/en-us/iaas/Content/Network/C
 
 ## Install directly from GitHub
 
-Yes. Once the project is in a **public GitHub repository**, users can run one
-shell command. Replace `OWNER`, `REPO`, and `main` (or use a release tag/commit):
+Run on your Linux server:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OWNER/REPO/main/macos-app/linux-agent/install.sh -o pulse-install.sh && sudo bash pulse-install.sh
+curl -fsSL https://raw.githubusercontent.com/StevenSteel7/Pulse/main/linux-agent/install.sh -o pulse-install.sh && sudo bash pulse-install.sh
 ```
 
-This assumes the repository contains `macos-app/` and `windows-agent/` at its
-root, matching the current parent project. If you publish **only macos-app** as
-the repository root, remove `macos-app/` from the URL. A private repository
-requires authenticated download. The downloaded file is complete before it
-runs; there are no second-stage downloads of agent source code.
+[Direct installer](https://raw.githubusercontent.com/StevenSteel7/Pulse/main/linux-agent/install.sh).
+The repository root is the Mac app project, so the path is `linux-agent/install.sh`
+with no `macos-app/` prefix. Replace `main` with a tag or commit for a fixed version.
+The complete installer is downloaded before it runs; its agent source is embedded.
 
-This Linux Bash script doesn't install the Windows agent. For Windows, the
-existing `windows-agent/install.bat` installs its dependencies, firewall rule,
-and scheduled task after the folder has been downloaded. A single PowerShell
-command can download the repository archive and run that installer; see
-[GitHub installation](../GITHUB-INSTALL.md). Windows still needs Python 3.10+
-and its normal administrator/UAC approval.
+For Windows, use the separate [Windows installer](../windows-agent/README.md).
+See [all installation commands](../GITHUB-INSTALL.md).
 
 ## Manage the service
 

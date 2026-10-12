@@ -1,62 +1,36 @@
-# One-command installation from GitHub
+# Install Pulse agents from GitHub
 
-Use a public repository containing the complete project:
-
-```
-windows-agent/
-macos-app/
-  linux-agent/install.sh
-```
-
-Replace `OWNER/REPO` with your GitHub repository. A tag or commit can replace
-`main` to keep installations on a known version. These are templates until
-the repository is uploaded; nothing has been published by this change.
+Repository: [StevenSteel7/Pulse](https://github.com/StevenSteel7/Pulse).
+The agent directories are at the repository root; installer URLs do **not** contain `macos-app/`.
 
 ## Linux / Oracle VPS
 
-Run on the VPS:
+Run on your Linux server:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OWNER/REPO/main/macos-app/linux-agent/install.sh -o pulse-install.sh && sudo bash pulse-install.sh
+curl -fsSL https://raw.githubusercontent.com/StevenSteel7/Pulse/main/linux-agent/install.sh -o pulse-install.sh && sudo bash pulse-install.sh
 ```
 
-Follow the printed SSH-tunnel command and enter the API key in Pulse's
-Oracle VPS settings. See [Linux setup](linux-agent/README.md).
+[Direct installer](https://raw.githubusercontent.com/StevenSteel7/Pulse/main/linux-agent/install.sh) · [Full Linux setup](linux-agent/README.md)
+
+The installer prints the API key and Mac-side SSH-tunnel command. The default agent listens on `127.0.0.1:8801`; connect Pulse to the local tunnel at `127.0.0.1:8802`.
 
 ## Windows
 
-Python 3.10+ must already be installed on PATH. Paste this **one line into
-PowerShell**; it downloads the archive, keeps the agent in your local app-data
-folder, preserves an existing `config.json`, and starts the existing installer
-with a UAC prompt:
+With Python 3.10+ on PATH, run in PowerShell:
 
 ```powershell
-$ErrorActionPreference='Stop'; $repo='OWNER/REPO'; $stage=Join-Path $env:TEMP ('Pulse-'+[guid]::NewGuid()); New-Item -ItemType Directory -Path $stage | Out-Null; Invoke-WebRequest "https://github.com/$repo/archive/refs/heads/main.zip" -OutFile "$stage\source.zip"; Expand-Archive "$stage\source.zip" -DestinationPath $stage; $source=Get-ChildItem $stage -Directory | Select-Object -First 1; $agent=Join-Path $env:LOCALAPPDATA 'PulseAgent'; New-Item -ItemType Directory -Force -Path $agent | Out-Null; Get-ChildItem (Join-Path $source.FullName 'windows-agent') | Where-Object { $_.Name -notin @('config.json','.venv','__pycache__') } | Copy-Item -Destination $agent -Recurse -Force; Start-Process -FilePath (Join-Path $agent 'install.bat') -Verb RunAs
+Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/StevenSteel7/Pulse/main/windows-agent/download.ps1' -OutFile "$env:TEMP\pulse-install.ps1"; if ($?) { powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$env:TEMP\pulse-install.ps1" }
 ```
 
-The Windows command is provided for use on Windows; it hasn't been executed
-on this Mac. It invokes the existing Windows setup, whose default bind address
-is `192.168.1.54`. Other Windows machines need their own LAN address in
-`config.json`; do not reuse SIXDX's address on another computer. Its scheduled
-task starts at user logon, while the Linux service starts at boot.
+[Direct installer](https://raw.githubusercontent.com/StevenSteel7/Pulse/main/windows-agent/download.ps1) · [Full Windows setup](windows-agent/README.md)
 
-## Before publishing
+Choose your LAN IPv4 address and approve UAC. Files are installed to `%LOCALAPPDATA%\PulseAgent`, and setup prints the values to enter in Pulse's PC connection. Existing keys are preserved. The Windows task starts at logon; the Linux service starts at boot.
 
-Do not upload the live `windows-agent/config.json`, API keys, `.venv`, caches,
-or build products. Put these patterns in the **repository-root** `.gitignore`
-(the macOS folder's ignore file cannot exclude sibling Windows files):
+## Versioned installations
 
-```gitignore
-**/config.json
-**/agent.env
-**/.venv/
-**/__pycache__/
-macos-app/build/
-macos-app/dist/
-.DS_Store
-```
+These commands follow `main`. For a fixed version, replace `main` in the download URL with a release tag or commit SHA. When using a fixed Windows bootstrap, also pass `-Ref THE_SAME_TAG_OR_SHA` to its `powershell.exe -File` invocation so the downloaded agent files use that version too.
 
-Keep `config.example.json` with placeholder values. Ignoring files does not
-remove secrets already committed; rotate any key that has already been made
-public. Agent installers are separate from macOS distribution: sharing the
-Mac app still needs its normal signing/distribution workflow.
+The files must be pushed to GitHub before their raw links become available. Downloaded scripts are saved completely before execution. No account is needed to download this public repository's installers.
+
+These commands install monitoring agents only. [Build the Mac app separately](README.md#build-the-mac-app).
